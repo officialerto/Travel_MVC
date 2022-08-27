@@ -1,0 +1,27 @@
+﻿@using TravelTripProje.Models.Sınıflar
+@model List<Blog>
+
+<div class="con-bot">
+    @foreach(var x in Model) {
+    <div class="left">
+        <div class="bot-left">
+            <a href="/Blog/BlogDetay/@x.ID"><img src="@x.BlogImage" alt="" style="width:275px; height:172px;"/></a>
+        </div>
+        <div class="left-text">
+            <a href="/Blog/BlogDetay/@x.ID"><h4>@x.Baslik</h4></a>
+
+                @*.ToString("dd.MM.yyyy") TARİHLERİ BU FORMATTA VERİR*@
+
+                <span class="doller">@x.Tarih.ToString("dd.MM.yyyy")</span>
+
+                @*.Substring(Belirlediğiniz karakterden, belirlediğiniz karaktere kadar harfi alır.)*@
+
+                <p>@x.Aciklama.Substring(0, 100)...</p>
+
+                <p><a href="/Blog/BlogDetay/@x.ID"><span class="read">Devamını Oku >></span></a></p>
+</div>
+    </div>
+    }
+    @Html.Action("Partial2", "Default")
+    <div class="clear"></div>
+</div>
